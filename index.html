@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DigiMemory</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="starfield"></div>
+
+    <h1 class="title">Không gian ký ức</h1>
+
+    <div class="memory-container">
+      <!-- Mảnh kính ký ức -->
+      <div class="memory-block">
+        <div class="string"></div>
+        <div class="glass glass-tilt float-1" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/400?1" />
+        </div>
+      </div>
+
+      <div class="memory-block">
+        <div class="string"></div>
+        <div class="glass glass-tilt float-2" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/400?2" />
+        </div>
+      </div>
+
+      <div class="memory-block">
+        <div class="string"></div>
+        <div class="glass glass-tilt float-3" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/400?3" />
+        </div>
+      </div>
+
+      <div class="memory-block">
+        <div class="string"></div>
+        <div class="glass glass-tilt float-4" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/400?4" />
+        </div>
+      </div>
+
+      <div class="memory-block">
+        <div class="string"></div>
+        <div class="glass glass-tilt float-5" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/400?5" />
+        </div>
+      </div>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" onclick="closeLightbox()">
+      <img id="lightbox-img" />
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

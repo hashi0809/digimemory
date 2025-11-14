@@ -1,0 +1,186 @@
+/* --- Bầu trời sao --- */
+body {
+  margin: 0;
+  background: #000;
+  overflow-x: hidden;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background: radial-gradient(circle, #0a0a1a 0%, #000 70%);
+}
+
+.starfield::before,
+.starfield::after {
+  content: "";
+  position: absolute;
+  width: 3000px;
+  height: 3000px;
+  background: url("https://i.imgur.com/8K3yv4O.png") repeat;
+  opacity: 0.6;
+  animation: stars 120s linear infinite;
+}
+
+.starfield::after {
+  animation-duration: 180s;
+  opacity: 0.4;
+}
+
+@keyframes stars {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
+
+/* --- Tiêu đề --- */
+.title {
+  text-align: center;
+  color: #bcdcff;
+  margin-top: 40px;
+  font-size: 46px;
+  font-weight: 300;
+  letter-spacing: 5px;
+  text-shadow: 0 0 25px #5ab2ff;
+}
+
+/* --- Block ký ức treo + dây --- */
+.memory-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 90px;
+  padding: 100px 0;
+}
+
+.memory-block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Dây treo */
+.string {
+  width: 2px;
+  height: 80px;
+  background: linear-gradient(180deg, #fff8, #fff2);
+  box-shadow: 0 0 8px #fff8;
+}
+
+/* --- Mảnh kính 3D dạng glass shard --- */
+.glass {
+  width: 260px;
+  height: 360px;
+  border-radius: 20px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.7),
+    inset 0 0 35px rgba(255, 255, 255, 0.06);
+  transition: transform 0.6s ease, box-shadow 0.4s;
+  cursor: pointer;
+  transform-style: preserve-3d;
+}
+
+.glass img {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+/* Hiệu ứng kính xoay 3D */
+.glass-tilt:hover {
+  transform: rotateX(10deg) rotateY(-10deg) scale(1.05);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8),
+    inset 0 0 60px rgba(255, 255, 255, 0.1);
+}
+
+/* Glow highlight */
+.glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    145deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.25) 60%,
+    transparent 80%
+  );
+  border-radius: 20px;
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.glass:hover::after {
+  opacity: 0.5;
+}
+
+/* --- Floating animations --- */
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(3deg);
+  }
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+}
+
+.float-1 {
+  animation: float 6.5s ease-in-out infinite;
+}
+.float-2 {
+  animation: float 8s ease-in-out infinite reverse;
+}
+.float-3 {
+  animation: float 7s ease-in-out infinite;
+}
+.float-4 {
+  animation: float 9s ease-in-out infinite reverse;
+}
+.float-5 {
+  animation: float 6.2s ease-in-out infinite;
+}
+
+/* --- LIGHTBOX --- */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  cursor: zoom-out;
+}
+
+#lightbox img {
+  max-width: 85%;
+  max-height: 85%;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  animation: zoomIn 0.4s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
