@@ -3,57 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DigiMemory</title>
+    <title>DigiMemory - Space Realm</title>
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
+    <!-- MEMORY GATE -->
+    <div id="gateway">
+      <div class="portal-circle"></div>
+      <div class="portal-ring"></div>
+
+      <div class="gate-text" id="gateText">
+        CHẠM ĐỂ BƯỚC VÀO KHÔNG GIAN KÝ ỨC
+      </div>
+    </div>
+
+    <!-- BG STARFIELD -->
     <div class="starfield"></div>
 
-    <h1 class="title">Không gian ký ức</h1>
+    <!-- METEORS -->
+    <div id="meteors"></div>
 
-    <div class="memory-container">
-      <!-- Mảnh kính ký ức -->
-      <div class="memory-block">
-        <div class="string"></div>
-        <div class="glass glass-tilt float-1" onclick="openLightbox(this)">
-          <img src="https://picsum.photos/400?1" />
+    <!-- CONTENT -->
+    <div class="content">
+      <h1 class="title typewriter" id="mainTitle">Không gian ký ức</h1>
+
+      <div class="memory-container">
+        <!-- VIDEO BLOCK -->
+        <div class="memory-block">
+          <div class="string"></div>
+
+          <div class="glow-particles"></div>
+
+          <div
+            class="glass glass-tilt float-1"
+            onclick="openLightboxVideo('video1')"
+          >
+            <video id="video1" src="video1.mp4" autoplay muted loop></video>
+          </div>
         </div>
-      </div>
 
-      <div class="memory-block">
-        <div class="string"></div>
-        <div class="glass glass-tilt float-2" onclick="openLightbox(this)">
-          <img src="https://picsum.photos/400?2" />
+        <div class="memory-block">
+          <div class="string"></div>
+          <div class="glow-particles"></div>
+
+          <div
+            class="glass glass-tilt float-2"
+            onclick="openLightboxVideo('video2')"
+          >
+            <video id="video2" src="video2.mp4" autoplay muted loop></video>
+          </div>
         </div>
-      </div>
 
-      <div class="memory-block">
-        <div class="string"></div>
-        <div class="glass glass-tilt float-3" onclick="openLightbox(this)">
-          <img src="https://picsum.photos/400?3" />
-        </div>
-      </div>
+        <div class="memory-block">
+          <div class="string"></div>
+          <div class="glow-particles"></div>
 
-      <div class="memory-block">
-        <div class="string"></div>
-        <div class="glass glass-tilt float-4" onclick="openLightbox(this)">
-          <img src="https://picsum.photos/400?4" />
-        </div>
-      </div>
-
-      <div class="memory-block">
-        <div class="string"></div>
-        <div class="glass glass-tilt float-5" onclick="openLightbox(this)">
-          <img src="https://picsum.photos/400?5" />
+          <div
+            class="glass glass-tilt float-3"
+            onclick="openLightboxVideo('video3')"
+          >
+            <video id="video3" src="video3.mp4" autoplay muted loop></video>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- LIGHTBOX -->
     <div id="lightbox" onclick="closeLightbox()">
-      <img id="lightbox-img" />
+      <video id="lightbox-video" controls autoplay></video>
     </div>
+
+    <!-- MUSIC -->
+    <audio id="bgm" src="music.mp3" loop></audio>
 
     <script src="script.js"></script>
   </body>
